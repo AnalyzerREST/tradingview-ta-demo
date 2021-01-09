@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TradingView-TA Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demo for the tradingview-ta Python package.">
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
+</head>
+
+<body>
+    <h1>TradingView-TA Demo</h1>
+    <p>Try the tradingview-ta library on this Flask site!</p>
+    <p style="color: green;">Running tradingview-ta v{{ version }}.</p>
+    <form action="/" method="POST">
+        <label for="symbol">Symbol</label>
+        <input type="text" id="symbol" name="symbol" placeholder="e.g. BTCUSDT, GOOGL, TSLA" required>
+        <label for="exchange">Exchange</label>
+        <input type="text" id="exchange" name="exchange" placeholder="e.g. NASDAQ, BINANCE, NYSE" required>
+        <label for="screener">Screener</label>
+        <input type="text" id="screener" name="screener" placeholder="e.g. AMERICA, CRYPTO, CFD, FOREX" required>
+        <label for="interval">Interval</label>
+        <select id="interval" name="interval" required>
+            <option value="1m">1 Minute</option>
+            <option value="5m">5 Minutes</option>
+            <option value="15m">15 Minutes</option>
+            <option value="1h">1 Hour</option>
+            <option value="4h">4 Hours</option>
+            <option value="1d">1 Day</option>
+            <option value="1W">1 Week</option>
+            <option value="1d">1 Month</option>
+        </select>
+        <label>Captcha</label>
+        <div class="h-captcha" data-sitekey="{{ captcha_sitekey }}"></div>
+        <input type="submit">
+    </form>
+    <hr>
+    <h2>Result</h2>
+    <h3>Details</h3>
+    <table>
+        <tr>
+            <th>Symbol <code>analysis.symbol</code></th>
+            <td>{{ symbol }}</td>
+        </tr>
+        <tr>
+            <th>Exchange <code>analysis.exchange</code></th>
+            <td>{{ exchange }}</td>
+        </tr>
+        <tr>
+            <th>Screener <code>analysis.screener</code></th>
+            <td>{{ screener }}</td>
+        </tr>
+        <tr>
+            <th>Time <code>analysis.time</code></th>
+            <td>{{ time }}</td>
+        </tr>
+    </table>
+    <h3>Summary <code>analysis.summary</code></h3>
+    <table>
+        {% for key, value in summary.items() %}
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Oscillators <code>analysis.oscillators</code></h3>
+    <table>
+        {% for key, value in oscillators.items() %}
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Moving Averages <code>analysis.moving_averages</code></h3>
+    <table>
+        {% for key, value in moving_averages.items() %}
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Indicators <code>analysis.indicators</code></h3>
+    <table>
+        {% for key, value in indicators.items() %}
+        <tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <footer>
+        &copy; <a rel="noopener" target="_blank" href="https://github.com/deathlyface">deathlyface</a> & contributors | <a rel="noopener" target="_blank" href="https://github.com/deathlyface/python-tradingview-ta">python-tradingview-ta</a> | <a rel="noopener" target="_blank" href="https://github.com/deathlyface/tradingview-ta-demo">tradingview-ta-demo</a>
+    </footer>
+</body>
+
+</html>
