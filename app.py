@@ -35,6 +35,7 @@ def root():
                     symbol=analysis.symbol, 
                     exchange=analysis.exchange, 
                     screener=analysis.screener, 
+                    interval=analysis.interval,
                     time=analysis.time.astimezone(timezone.utc), 
                     summary=analysis.summary,
                     oscillators=analysis.oscillators,

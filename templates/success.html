@@ -38,6 +38,7 @@
     </form>
     <hr>
     <h2>Result</h2>
+    <p>Compare with data from TradingView: <a rel="noopener" target="_blank" href="https://www.tradingview.com/symbols/{{ symbol }}/technicals/">{{ symbol }}</a></p>
     <h3>Details</h3>
     <table>
         <tr>
@@ -51,6 +52,10 @@
         <tr>
             <th>Screener <code>analysis.screener</code></th>
             <td>{{ screener }}</td>
+        </tr>
+        <tr>
+            <th>Interval <code>analysis.interval</code></th>
+            <td>{{ interval }}</td>
         </tr>
         <tr>
             <th>Time <code>analysis.time</code></th>
