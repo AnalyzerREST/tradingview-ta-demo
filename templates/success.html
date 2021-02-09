@@ -74,19 +74,49 @@
     <h3>Oscillators <code>analysis.oscillators</code></h3>
     <table>
         {% for key, value in oscillators.items() %}
+        {% if key != "COMPUTE": %}
         <tr>
             <th> {{ key }} </th>
-            <td> {{ value }} </td>
+            <td colspan="2"> {{ value }} </td>
         </tr>
+        {% else %}
+        <tr>
+            <th> COMPUTE </th>
+            <th> INDICATOR </th>
+            <th> RECOMMENDATION </th>
+        </tr>
+        {% for key, val in value.items() %}
+        <tr>
+            <td></td>
+            <td> {{ key if key != "COMPUTE" }} </td>
+            <td> {{ val if key != "COMPUTE" }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
         {% endfor %}
     </table>
     <h3>Moving Averages <code>analysis.moving_averages</code></h3>
     <table>
         {% for key, value in moving_averages.items() %}
+        {% if key != "COMPUTE": %}
         <tr>
             <th> {{ key }} </th>
-            <td> {{ value }} </td>
+            <td colspan="2"> {{ value }} </td>
         </tr>
+        {% else %}
+        <tr>
+            <th> COMPUTE </th>
+            <th> INDICATOR </th>
+            <th> RECOMMENDATION </th>
+        </tr>
+        {% for key, val in value.items() %}
+        <tr>
+            <td></td>
+            <td> {{ key if key != "COMPUTE" }} </td>
+            <td> {{ val if key != "COMPUTE" }} </td>
+        </tr>
+        {% endfor %}
+        {% endif %}
         {% endfor %}
     </table>
     <h3>Indicators <code>analysis.indicators</code></h3>
