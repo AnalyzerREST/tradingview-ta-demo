@@ -1,17 +1,17 @@
 # tradingview-ta-demo
- A demo site for the [tradingview-ta](https://github.com/deathlyface/python-tradingview-ta) Python package.
+ A demo site for the [tradingview-ta](https://github.com/brian-the-dev/python-tradingview-ta) Python package.
  
 ## Site
-https://tradingview.deathlyf.com
+https://tradingview.brianthe.dev
 
 ## Screenshot
-![](https://raw.githubusercontent.com/deathlyface/tradingview-ta-demo/main/static/screenshot.png)
+![](https://raw.githubusercontent.com/brian-the-dev/tradingview-ta-demo/main/static/screenshot.png)
 
 ## Captcha
 Since this site is self hosted, I have to add CAPTCHA to save bandwidth from bots.
 
 ## Contributing
-You may fork this repository or submit a pull request. Any pull request (documentation, bug fix, features, etc) are welcomed. Please follow the guidelines [here](https://github.com/deathlyface/python-tradingview-ta/blob/master/CONTRIBUTING.md).
+You may fork this repository or submit a pull request. Any pull request (documentation, bug fix, features, etc) are welcomed. Please follow the guidelines [here](https://github.com/brian-the-dev/python-tradingview-ta/blob/master/CONTRIBUTING.md).
 
 ## License
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
