@@ -1,4 +1,3 @@
-datetime>=4.3
-flask>=1.1.2
-gunicorn>=20.0.4
-tradingview-ta>=3.2.1
+datetime
+flask
+tradingview-ta==3.2.4
