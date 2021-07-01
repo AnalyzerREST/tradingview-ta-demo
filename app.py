@@ -44,3 +44,6 @@ def root():
                     captcha_sitekey=hcaptcha_sitekey)
         except Exception as e:
             return render_template("error.html", version=tradingview_ta.__version__, error=e, captcha_sitekey=hcaptcha_sitekey)
+            
+if __name__ == '__main__':
+	app.run(debug=False, host='0.0.0.0')
