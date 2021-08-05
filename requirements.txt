@@ -1,4 +1,4 @@
 datetime
 flask
 gunicorn
-tradingview-ta==3.2.6
+tradingview-ta==3.2.7
