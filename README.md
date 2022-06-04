@@ -1,5 +1,5 @@
 # tradingview-ta-demo
- A demo site for the [tradingview-ta](https://github.com/brian-the-dev/python-tradingview-ta) Python package.
+ A demo site for the [tradingview-ta](https://github.com/brian-the-dev/python-tradingview-ta) library.
  
 ## Site
 https://tradingview.brianthe.dev
@@ -8,7 +8,7 @@ https://tradingview.brianthe.dev
 ![](https://raw.githubusercontent.com/brian-the-dev/tradingview-ta-demo/main/static/screenshot.png)
 
 ## Captcha
-Since this site is self hosted, I have to add CAPTCHA to save bandwidth from bots.
+Captchas are used to prevent abuse of the API, sorry for the inconvenience.
 
 ## Contributing
 You may fork this repository or submit a pull request. Any pull request (documentation, bug fix, features, etc) are welcomed. Please follow the guidelines [here](https://github.com/brian-the-dev/python-tradingview-ta/blob/master/CONTRIBUTING.md).
