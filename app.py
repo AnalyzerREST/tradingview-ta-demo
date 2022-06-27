@@ -7,9 +7,9 @@ import tradingview_ta, requests, os
 
 app = Flask(__name__)
 
-# Load hCaptcha sitekey & secret from environmental variables
-hcaptcha_sitekey = os.environ.get("h-captcha-sitekey")
-hcaptcha_secret = os.environ.get("h-captcha-secret")
+# Load hCaptcha sitekey & secret from environment variables
+hcaptcha_sitekey = os.environ.get("HCAPTCHA_SITEKEY")
+hcaptcha_secret = os.environ.get("HCAPTCHA_SECRET")
 
 @app.route("/", methods=["GET", "POST"])
 def root():
