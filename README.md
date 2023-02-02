@@ -7,8 +7,8 @@ https://tradingview.brianthe.dev
 ## Screenshot
 ![](https://raw.githubusercontent.com/brian-the-dev/tradingview-ta-demo/main/static/screenshot.png)
 
-## Captcha
-Captchas are used to prevent abuse of the API, sorry for the inconvenience.
+## Turnstile
+We use Cloudflare's Turnstile to prevent abuse. Get the API key from Cloudflare if you need them.
 
 ## Contributing
 You may fork this repository or submit a pull request. Any pull request (documentation, bug fix, features, etc) are welcomed. Please follow the guidelines [here](https://github.com/brian-the-dev/python-tradingview-ta/blob/master/CONTRIBUTING.md).
