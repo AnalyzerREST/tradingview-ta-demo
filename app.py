@@ -7,21 +7,21 @@ import tradingview_ta, requests, os
 
 app = Flask(__name__)
 
-# Load hCaptcha sitekey & secret from environment variables
-hcaptcha_sitekey = os.environ.get("HCAPTCHA_SITEKEY")
-hcaptcha_secret = os.environ.get("HCAPTCHA_SECRET")
+# Turnstile keys
+turnstile_sitekey = os.environ.get("TURNSTILE_SITEKEY")
+turnstile_secret = os.environ.get("TURNSTILE_SECRET")
 
 @app.route("/", methods=["GET", "POST"])
 def root():
     if request.method == "GET":
-        return render_template("index.html", version=tradingview_ta.__version__, captcha_sitekey=hcaptcha_sitekey)
+        return render_template("index.html", version=tradingview_ta.__version__, sitekey=turnstile_sitekey)
     elif request.method == "POST":
         try:
-            # hCaptcha
-            hcaptcha_response = request.form["h-captcha-response"]
-            captchaReq = requests.post("https://hcaptcha.com/siteverify", data={"secret": hcaptcha_secret, "response": hcaptcha_response})
-            if captchaReq.json()["success"] == False:
-                return render_template("error.html", version=tradingview_ta.__version__, error="Error: Invalid captcha", captcha_sitekey=hcaptcha_sitekey)
+            # Turnstile
+            turnstile_resp = request.form["cf-turnstile-response"]
+            validate = requests.post("https://challenges.cloudflare.com/turnstile/v0/siteverify", data={"secret": turnstile_secret, "response": turnstile_resp})
+            if validate.json()["success"] == False:
+                return render_template("error.html", version=tradingview_ta.__version__, error="Error: Invalid Turnstile token", sitekey=turnstile_sitekey)
 
             # TradingView Technical Analysis
             handler = TA_Handler()
@@ -41,9 +41,9 @@ def root():
                     oscillators=analysis.oscillators,
                     moving_averages=analysis.moving_averages,
                     indicators=analysis.indicators,
-                    captcha_sitekey=hcaptcha_sitekey)
+                    sitekey=turnstile_sitekey)
         except Exception as e:
-            return render_template("error.html", version=tradingview_ta.__version__, error=e, captcha_sitekey=hcaptcha_sitekey)
+            return render_template("error.html", version=tradingview_ta.__version__, error=e, sitekey=turnstile_sitekey)
             
 if __name__ == '__main__':
 	app.run(debug=False, host='0.0.0.0')
